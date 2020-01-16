@@ -41,6 +41,7 @@ for a=1:length(M);
     k=j-length(E)/2;
     s2(k,:) = S(j,:);
     end
+    
  %disp(s2);
  %disp('the system y is');
  y=(a2*s2)+n2;
@@ -57,14 +58,14 @@ pr=1;
  for s=0:m-1
     ts=chi2inv(1-PF,2*(m-s)*(n-s))
   for i=s+1:m
-    pr=pr*(1-K(i,i)^2);
-%     disp('pr value');
-%     disp(pr)   
+    pr=pr*(1-K(i,i)^2); 
   end      
 ct=-(2*M(a)-(m+n+1))*log(pr);
 pr=1;
 disp('ct values')
 disp(ct);
+
+
 if ct<ts
     disp('the number of correlated components');
     ds=s;
@@ -81,6 +82,8 @@ end
      %disp(M(a));
 end
 end
+
+
 %storing Individual singualr values for M
 m1=zeros(r,n);%To store the values of M=20 for 1000 runs
 m2=zeros(r,n);
@@ -104,6 +107,9 @@ for v=3*r+1:4*r
     m4(j,:)=sg(v,:);
     j=j+1;
 end
+
+
+
 %calculating means
 M1=zeros(1,n);
 M2=zeros(1,n);
@@ -126,6 +132,8 @@ plot(i,M3,'bo');
 plot(i,M4,'rs');
 p=min(n,m);
 hold off
+
+
 %for 5 r values
 m1=zeros(r,R(b));%To store the values of M=200 for 1000 runs
 m2=zeros(r,R(b));
@@ -154,6 +162,8 @@ for v=4*r+1:5*r
     m5(j,:)=sg(v,:);
     j=j+1;
 end
+
+
 %calculating means
 M1=zeros(1,R(b));
 M2=zeros(1,R(b));
@@ -170,6 +180,8 @@ end
 N=[M1];%M2;M3;M4;M5];
 i=1:10;
 plot(i,T,'k*')
+
+
 %disp(i);
 hold on
 j=1:R(b)
@@ -179,23 +191,5 @@ plot(i,M3,'bo');
 plot(i,M4,'rs');
 plot(i,M5,'c*');
 hold off
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-
-
 
 
